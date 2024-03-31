@@ -18,8 +18,16 @@ use App\Http\Controllers\ApiController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+  Route::get('/posts',  [ApiController::class, 'getDataPost'])->name('data-post');
+  Route::post('/create-posts',  [ApiController::class, 'processAdd'])->name('save-post');
+  Route::get('/posts/{id}',  [ApiController::class, 'getPostDetail'])->name('edit-post');
+  Route::post('/posts/{id}',  [ApiController::class, 'processUpdate'])->name('update-post');
+  Route::delete('/posts/delete/{id}',  [ApiController::class, 'delete'])->name('delete-post');
 
-  Route::get('/posts', [ApiController::class, 'getDataPost']);
-  Route::post('/create-posts', [ApiController::class, 'processAdd']);
+
+
+ 
+
+
 
 
